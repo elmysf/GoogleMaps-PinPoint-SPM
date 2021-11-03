@@ -6,6 +6,12 @@
 //
 
 import UIKit
+import GoogleMaps
+import GooglePlaces
+import Firebase
+import FirebaseRemoteConfig
+
+var remoteConfig = RemoteConfig.remoteConfig()
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        GMSServices.provideAPIKey(AppConstants.googleMapsApiKey)
+        GMSPlacesClient.provideAPIKey(AppConstants.googleMapsApiKey)
+        FirebaseApp.configure()
         return true
     }
 
